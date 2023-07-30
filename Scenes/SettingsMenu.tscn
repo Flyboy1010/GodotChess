@@ -1,0 +1,194 @@
+[gd_scene load_steps=3 format=3 uid="uid://7r0kgyqub0eg"]
+
+[ext_resource type="Script" path="res://Scripts/SettingsMenu.cs" id="1_n4tsy"]
+[ext_resource type="Theme" uid="uid://dgkm02cwgddi4" path="res://Assets/Themes/UI.tres" id="1_tc3im"]
+
+[node name="SettingsMenu" type="Control" node_paths=PackedStringArray("fenString", "eloSlider", "eloValueLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n4tsy")
+fenString = NodePath("SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox/LineEdit")
+eloSlider = NodePath("SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox/ComputerElo/ComputerEloSlider")
+eloValueLabel = NodePath("SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox/ComputerElo/ComputerEloNumberLabel")
+metadata/_edit_group_ = true
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="SettingsPanel" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_left = 709.0
+offset_top = 278.5
+offset_right = 1211.0
+offset_bottom = 801.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tc3im")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SettingsPanel"]
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsPanel/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="SettingsVBox" type="VBoxContainer" parent="SettingsPanel/ScrollContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="SettingsLabel" type="Label" parent="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox"]
+layout_mode = 2
+theme = ExtResource("1_tc3im")
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="FullscreenButton" type="Button" parent="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_tc3im")
+text = "FULLSCREEN"
+
+[node name="PromotionVBox" type="HBoxContainer" parent="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="PromotionLabel" type="Label" parent="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox/PromotionVBox"]
+layout_mode = 2
+theme = ExtResource("1_tc3im")
+text = "Promotion Piece"
+
+[node name="PromotionPiecesOptionButton" type="OptionButton" parent="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox/PromotionVBox"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_tc3im")
+alignment = 1
+item_count = 4
+selected = 0
+popup/item_0/text = "QUEEN"
+popup/item_0/id = 0
+popup/item_1/text = "BISHOP"
+popup/item_1/id = 1
+popup/item_2/text = "KNIGHT"
+popup/item_2/id = 2
+popup/item_3/text = "ROOK"
+popup/item_3/id = 3
+
+[node name="BoardSettingsLabel" type="Label" parent="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox"]
+layout_mode = 2
+theme = ExtResource("1_tc3im")
+text = "Board Settings"
+horizontal_alignment = 1
+
+[node name="FlipBoardButton" type="Button" parent="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_tc3im")
+text = "FLIP BOARD"
+
+[node name="FENSettingsLabel" type="Label" parent="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox"]
+layout_mode = 2
+theme = ExtResource("1_tc3im")
+text = "FEN Settings"
+horizontal_alignment = 1
+
+[node name="GetFENButton" type="Button" parent="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_tc3im")
+text = "GET FEN"
+
+[node name="LineEdit" type="LineEdit" parent="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox"]
+layout_mode = 2
+focus_mode = 1
+theme = ExtResource("1_tc3im")
+theme_override_font_sizes/font_size = 30
+placeholder_text = "Paste FEN string here"
+alignment = 1
+context_menu_enabled = false
+caret_blink = true
+caret_force_displayed = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox"]
+layout_mode = 2
+
+[node name="PlayWhiteButton" type="Button" parent="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("1_tc3im")
+text = "PLAY WHITE"
+
+[node name="PlayBlackButton" type="Button" parent="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("1_tc3im")
+text = "PLAY BLACK"
+
+[node name="ComputerSettingsLabel" type="Label" parent="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox"]
+layout_mode = 2
+theme = ExtResource("1_tc3im")
+text = "Computer Settings"
+horizontal_alignment = 1
+
+[node name="ComputerElo" type="HBoxContainer" parent="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="ComputerEloLabel" type="Label" parent="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox/ComputerElo"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_tc3im")
+text = "ELO"
+horizontal_alignment = 1
+
+[node name="ComputerEloSlider" type="HSlider" parent="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox/ComputerElo"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_mode = 0
+theme = ExtResource("1_tc3im")
+min_value = 1350.0
+max_value = 2900.0
+step = 50.0
+value = 1700.0
+rounded = true
+scrollable = false
+
+[node name="ComputerEloNumberLabel" type="Label" parent="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox/ComputerElo"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_tc3im")
+text = "1700"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_tc3im")
+text = "BACK"
+
+[connection signal="pressed" from="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox/FullscreenButton" to="." method="_OnFullscreenButtonPressed"]
+[connection signal="item_selected" from="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox/PromotionVBox/PromotionPiecesOptionButton" to="." method="_OnPromotionPiecesOptionButtonItemSelected"]
+[connection signal="pressed" from="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox/FlipBoardButton" to="." method="_OnFlipBoardButtonPressed"]
+[connection signal="pressed" from="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox/GetFENButton" to="." method="_OnGetFENButtonPressed"]
+[connection signal="pressed" from="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox/HBoxContainer/PlayWhiteButton" to="." method="_OnPlayWhiteButtonPressed"]
+[connection signal="pressed" from="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox/HBoxContainer/PlayBlackButton" to="." method="_OnPlayBlackButtonPressed"]
+[connection signal="drag_ended" from="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox/ComputerElo/ComputerEloSlider" to="." method="_OnComputerEloSliderDragEnded"]
+[connection signal="value_changed" from="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox/ComputerElo/ComputerEloSlider" to="." method="_OnComputerEloSliderValueChanged"]
+[connection signal="pressed" from="SettingsPanel/ScrollContainer/MarginContainer/SettingsVBox/BackButton" to="." method="_OnBackButtonPressed"]

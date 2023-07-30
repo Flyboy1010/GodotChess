@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dy8koqus312s6"]
+
+[ext_resource type="Shader" path="res://Assets/Shaders&Materials/Circle.gdshader" id="1_22wyd"]
+
+[resource]
+shader = ExtResource("1_22wyd")
+shader_parameter/color = Color(0, 0, 0, 0.2)
+shader_parameter/thickness = 1.0
+shader_parameter/radius = 0.35

@@ -1,0 +1,151 @@
+[gd_scene load_steps=16 format=3 uid="uid://014wlx7s1u0b"]
+
+[ext_resource type="Script" path="res://Scripts/ChessGame.cs" id="1_8wyvt"]
+[ext_resource type="Script" path="res://Scripts/BoardGraphics.cs" id="1_23jwv"]
+[ext_resource type="Texture2D" uid="uid://bxl4o12psispv" path="res://Assets/Sprites/classicpieces2.png" id="2_whjme"]
+[ext_resource type="Resource" uid="uid://ch43sqf31721d" path="res://Assets/Themes/PurpleTheme.tres" id="3_h2x5i"]
+[ext_resource type="Script" path="res://Scripts/Menu.cs" id="4_3ylh8"]
+[ext_resource type="Theme" uid="uid://dgkm02cwgddi4" path="res://Assets/Themes/UI.tres" id="4_kopw5"]
+[ext_resource type="AudioStream" uid="uid://cuync3vwglr85" path="res://Assets/Sounds/move-self.ogg" id="10_smqnu"]
+[ext_resource type="AudioStream" uid="uid://d2vuj4vn534g6" path="res://Assets/Sounds/move-opponent.ogg" id="11_weniw"]
+[ext_resource type="AudioStream" uid="uid://cy3jhqy7w82ab" path="res://Assets/Sounds/capture.ogg" id="12_q5oqp"]
+[ext_resource type="AudioStream" uid="uid://bmb6t0l76lqdu" path="res://Assets/Sounds/castle.ogg" id="13_d70aw"]
+[ext_resource type="AudioStream" uid="uid://cv5yxys0q6pm4" path="res://Assets/Sounds/move-check.ogg" id="14_ci8ai"]
+[ext_resource type="AudioStream" uid="uid://cem26ngywkbiw" path="res://Assets/Sounds/promote.ogg" id="15_015nh"]
+[ext_resource type="PackedScene" uid="uid://7r0kgyqub0eg" path="res://Scenes/SettingsMenu.tscn" id="16_dam84"]
+[ext_resource type="AudioStream" uid="uid://bhymswa7w6n5y" path="res://Assets/Sounds/game-start.ogg" id="16_qh4h4"]
+[ext_resource type="AudioStream" uid="uid://bjrl81iaimayq" path="res://Assets/Sounds/game-end.ogg" id="17_jixsu"]
+
+[node name="ChessGame" type="Node" node_paths=PackedStringArray("gameEndLabel")]
+script = ExtResource("1_8wyvt")
+piecesTextureAtlas = ExtResource("2_whjme")
+boardTheme = ExtResource("3_h2x5i")
+gameEndLabel = NodePath("Messages/VBoxContainer/GameEndLabel")
+
+[node name="BoardGraphics" type="Node2D" parent="."]
+position = Vector2(540, 120)
+script = ExtResource("1_23jwv")
+
+[node name="Menu" type="Control" parent="." node_paths=PackedStringArray("game", "settingsMenu")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1380.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_3ylh8")
+game = NodePath("..")
+settingsMenu = NodePath("../SettingsMenu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.5
+offset_top = -135.5
+offset_right = 168.5
+offset_bottom = 135.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="PlayWhiteButton" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_kopw5")
+text = "PLAY WHITE"
+
+[node name="PlayBlackButton" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_kopw5")
+text = "PLAY BLACK"
+
+[node name="SettingsButton" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_kopw5")
+text = "SETTINGS"
+
+[node name="QuitButton" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_kopw5")
+text = "QUIT"
+
+[node name="Messages" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1380.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Messages"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ComputerElo" type="Label" parent="Messages/VBoxContainer"]
+visible = false
+modulate = Color(0.905882, 0.713726, 0.352941, 1)
+layout_mode = 2
+theme = ExtResource("4_kopw5")
+text = "Computer elo: 1700"
+
+[node name="GameEndLabel" type="Label" parent="Messages/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("4_kopw5")
+theme_override_colors/font_color = Color(0.92549, 0.403922, 0.403922, 1)
+text = "Checkmate!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsMenu" parent="." node_paths=PackedStringArray("game") instance=ExtResource("16_dam84")]
+visible = false
+z_index = 3
+game = NodePath("..")
+
+[node name="MoveSelfSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_smqnu")
+
+[node name="MoveOpponentSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_weniw")
+
+[node name="CaptureSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_q5oqp")
+
+[node name="CastleSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_d70aw")
+
+[node name="CheckSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_ci8ai")
+
+[node name="PromoteSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_015nh")
+
+[node name="GameStartSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_qh4h4")
+
+[node name="GameEndSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_jixsu")
+
+[connection signal="pressed" from="Menu/VBoxContainer/PlayWhiteButton" to="Menu" method="_OnPlayWhiteButtonPressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/PlayBlackButton" to="Menu" method="_OnPlayBlackButtonPressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/SettingsButton" to="Menu" method="_OnSettingsButtonPressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/QuitButton" to="Menu" method="_OnQuitButtonPressed"]

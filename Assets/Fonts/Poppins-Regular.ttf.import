@@ -1,0 +1,39 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://cc0dif41tc5o3"
+path="res://.godot/imported/Poppins-Regular.ttf-4baeef52d79191d6228faf051a44b650.fontdata"
+
+[deps]
+
+source_file="res://Assets/Fonts/Poppins-Regular.ttf"
+dest_files=["res://.godot/imported/Poppins-Regular.ttf-4baeef52d79191d6228faf051a44b650.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=true
+multichannel_signed_distance_field=true
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration",
+"size": Vector2i(16, 0),
+"variation_embolden": 0.0
+}]
+language_support={}
+script_support={}
+opentype_features={}

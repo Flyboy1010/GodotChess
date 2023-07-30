@@ -1,0 +1,6 @@
+# Godot 4+ specific ignores
+.godot/
+export_presets.cfg
+# rest
+.vs/
+Properties/

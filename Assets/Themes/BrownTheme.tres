@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://qpxorkdsu700"]
+
+[ext_resource type="Script" path="res://Scripts/BoardTheme.cs" id="2_nqdfi"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_nqdfi")
+LightColor = Color(0.921569, 0.85098, 0.768627, 1)
+DarkColor = Color(0.490196, 0.384314, 0.317647, 1)
+LastMoveColor = Color(0.86, 0.78, 0.35, 0.5)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bulebok5w7vpr"]
+
+[ext_resource type="Material" uid="uid://dge80iesygowl" path="res://Assets/Shaders&Materials/CircleHoleMaterial.tres" id="1_8dyyx"]
+
+[node name="CircleShaderTest" type="ColorRect"]
+material = ExtResource("1_8dyyx")
+offset_right = 80.0
+offset_bottom = 80.0
