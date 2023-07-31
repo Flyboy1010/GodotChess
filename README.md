@@ -6,4 +6,6 @@ Common rules like pawn doublepushes, en passant and castling are implemented, 3 
 
 It uses stockfish as the chess engine for the ai, this is done running the stockfish program as a process from c# and using the uci protocol to comunicate with it.
 
+I do not own the sprites and the sounds (they are from chess.com hehe)
+
 ![image](https://github.com/Flyboy1010/GodotChess/assets/59151174/25cf63f5-83d0-49b1-900c-e7a560236706)
