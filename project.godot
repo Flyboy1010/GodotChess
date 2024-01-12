@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Chess"
 run/main_scene="res://Scenes/ChessGame.tscn"
-config/features=PackedStringArray("4.1", "C#", "Mobile")
+config/features=PackedStringArray("4.2", "C#", "Mobile")
 boot_splash/image="res://icon.png"
 boot_splash/fullsize=false
 config/icon="res://icon.png"

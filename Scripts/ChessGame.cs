@@ -503,15 +503,20 @@ public partial class ChessGame : Node
                         }
                         else
                         {
-                            // deselect the piece
+                            // check if there was a piece selected
 
-                            DeselectPiece();
+                            if (pieceSelection.isSelected)
+                            {
+                                // deselect the piece
 
-                            // remove the board hints & deselect the piece
+                                DeselectPiece();
 
-                            boardGraphics.DeselectPiece(squareIndex);
-                            boardGraphics.DeselectPieceSquare();
-                            boardGraphics.SetHintMoves(null);
+                                // remove the board hints & deselect the piece
+
+                                boardGraphics.DeselectPiece(pieceSelection.squareIndex);
+                                boardGraphics.DeselectPieceSquare();
+                                boardGraphics.SetHintMoves(null);
+                            }
                         }
                     }
 
