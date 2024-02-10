@@ -43,6 +43,8 @@ public static class MoveGeneration
         new int[] { D8, C8 }
     };
 
+    private static readonly int[] longCastleEmptySquareIndex = new int[2] { B1, B8 };
+
     private static readonly int[] shortCastleTargetKingSquareIndex = new int[2] { G1, G8 };
     private static readonly int[] longCastleTargetKingSquareIndex = new int[2] { C1, C8 };
 
@@ -573,6 +575,17 @@ public static class MoveGeneration
                         {
                             isLongCastleLegal = false;
                             break;
+                        }
+                    }
+
+                    // check the knight square (bug fixed)
+
+                    {
+                        Piece targetPiece = board.GetPiece(longCastleEmptySquareIndex[(int)piece.color - 1]);
+
+                        if (targetPiece.type != Piece.Type.None)
+                        {
+                            isLongCastleLegal = false;
                         }
                     }
 
